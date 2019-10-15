@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package Chunks;
+
+message TestSimpleMessage
+{
+    string name = 1;
+    int32 num = 2;
+}
+
+message ChunkBase
+{
+    uint32 connID = 1;
+	int32 objID = 2;
+	int32 chunktype = 3;
+	int64 fixedTimeStamp = 4;
+	uint32 tickNumber = 5;
+	uint32 sendType = 6;
+
+	bytes content = 7;
+}
+
+message ListTest
+{
+	repeated Vector3Message list = 1;
+}
+
+message ProjectileObjectSyncChunk
+{
+	Vector3Message position = 1;
+	Vector3Message velocity = 2;
+	Vector3Message force = 3;
+	bool isKinematic = 4;
+	int32  magicalExtraOne = 5;
+}
+
+
+message Vector3Message
+{
+	float x = 1;
+	float y = 2;
+	float z = 3;
+}
